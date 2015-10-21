@@ -193,9 +193,10 @@ public:
 	Preference<float>	m_fLifeDifficultyScale;
 
 	// Whoever added these: Please add a comment saying what they do. -Chris
-	Preference<int>	m_iRegenComboAfterMiss;
+	Preference<int>		m_iRegenComboAfterMiss; // combo that must be met after a Miss to regen life
+	Preference<int>		m_iMaxRegenComboAfterMiss; // caps RegenComboAfterMiss if multiple Misses occur in rapid succession
 	Preference<bool>	m_bMercifulDrain; // negative life deltas are scaled by the players life percentage
-	Preference<bool> m_HarshHotLifePenalty; // See LifeMeterBar.cpp -Kyz
+	Preference<bool>	m_HarshHotLifePenalty; // See LifeMeterBar.cpp -Kyz
 	Preference<bool>	m_bMinimum1FullSongInCourses; // FEoS for 1st song, FailImmediate thereafter
 	Preference<bool>	m_bFailOffInBeginner;
 	Preference<bool>	m_bFailOffForFirstStageEasy;
@@ -314,6 +315,7 @@ public:
 	Preference<bool>	m_bLogCheckpoints;
 	Preference<bool>	m_bShowLoadingWindow;
 	Preference<bool>	m_bPseudoLocalize;
+	Preference<bool>	m_show_theme_errors;
 
 #if !defined(WITHOUT_NETWORKING)
 	Preference<bool>	m_bEnableScoreboard;  //Alows disabling of scoreboard in network play

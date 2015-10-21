@@ -316,7 +316,7 @@ bool Song::LoadFromSongDir( RString sDir, bool load_autosave )
 			loaderSM.LoadFromSimfile( sCacheFilePath, *this, true );
 			loaderSM.TidyUpData( *this, true );
 		}
-		if(m_sMainTitle == "" || m_sMusicFile == "")
+		if(m_sMainTitle == "" || (m_sMusicFile == "" && m_vsKeysoundFile.empty()))
 		{
 			LOG->Warn("Main title or music file for '%s' came up blank, forced to fall back on TidyUpData to fix title and paths.  Do not use # or ; in a song title.", m_sSongDir.c_str());
 			// Tell TidyUpData that it's not loaded from the cache because it needs
@@ -1157,7 +1157,12 @@ void Song::Save(bool autosave)
 		return;
 	}
 	SaveToCacheFile();
-	SaveToSMFile();
+	// If one of the charts uses split timing, then it cannot be accurately
+	// saved in the .sm format.  So saving the .sm is disabled.
+	if(!AnyChartUsesSplitTiming())
+	{
+		SaveToSMFile();
+	}
 	//SaveToDWIFile();
 
 	/* We've safely written our files and created backups. Rename non-SM and
@@ -1882,6 +1887,18 @@ bool Song::IsStepsUsingDifferentTiming(Steps *pSteps) const
 {
 	// XXX This no longer depends on Song at all
 	return !pSteps->m_Timing.empty();
+}
+
+bool Song::AnyChartUsesSplitTiming() const
+{
+	FOREACH_CONST(Steps*, m_vpSteps, s)
+	{
+		if(!(*s)->m_Timing.empty())
+		{
+			return true;
+		}
+	}
+	return false;
 }
 
 bool Song::HasSignificantBpmChangesOrStops() const

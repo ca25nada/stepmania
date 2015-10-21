@@ -202,6 +202,7 @@ PrefsManager::PrefsManager() :
 
 
 	m_iRegenComboAfterMiss		( "RegenComboAfterMiss",	5 ),
+	m_iMaxRegenComboAfterMiss	( "MaxRegenComboAfterMiss",	5 ), // this was 10 by default in SM3.95 -dguzek
 	m_bMercifulDrain		( "MercifulDrain",		false ),	// negative life deltas are scaled by the players life percentage
 	m_HarshHotLifePenalty		( "HarshHotLifePenalty",	true ),
 	m_bMinimum1FullSongInCourses	( "Minimum1FullSongInCourses",	false ),	// FEoS for 1st song, FailImmediate thereafter
@@ -308,7 +309,8 @@ PrefsManager::PrefsManager() :
 	m_bLogSkips			( "LogSkips",		false ),
 	m_bLogCheckpoints		( "LogCheckpoints",	false ),
 	m_bShowLoadingWindow		( "ShowLoadingWindow",	true ),
-	m_bPseudoLocalize		( "PseudoLocalize",	false )
+	m_bPseudoLocalize		( "PseudoLocalize",	false ),
+	m_show_theme_errors("ShowThemeErrors", false)
 
 #if !defined(WITHOUT_NETWORKING)
 	,

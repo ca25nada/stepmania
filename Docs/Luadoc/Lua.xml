@@ -628,11 +628,13 @@
 			<Function name='PixelFont'/>
 			<Function name='Stroke'/>
 			<Function name='distort'/>
+			<Function name='get_mult_attrs_with_diffuse'/>
 			<Function name='jitter'/>
 			<Function name='max_dimension_use_zoom'/>
 			<Function name='maxheight'/>
 			<Function name='maxwidth'/>
 			<Function name='rainbowscroll'/>
+			<Function name='set_mult_attrs_with_diffuse'/>
 			<Function name='settext'/>
 			<Function name='settextf'/>
 			<Function name='strokecolor'/>
@@ -1361,6 +1363,14 @@
 		<Class name='RadarValues'>
 			<Function name='GetValue'/>
 		</Class>
+		<Class name='RageBezier2D'>
+			<Function name='destroy'/>
+			<Function name='evaluate'/>
+			<Function name='evaluate_y_from_x'/>
+			<Function name='get_x'/>
+			<Function name='get_y'/>
+			<Function name='set_from_bezier'/>
+		</Class>
 		<Class name='RageDisplay'>
 			<Function name='GetCumFPS'/>
 			<Function name='GetDisplayHeight'/>
@@ -1392,6 +1402,15 @@
 		</Class>
 		<Class name='RageInput'>
 			<Function name='GetDescriptions'/>
+		</Class>
+		<Class name='RageQuadratic'>
+			<Function name='evaluate'/>
+			<Function name='get_bezier'/>
+			<Function name='get_bezier_end'/>
+			<Function name='get_bezier_start'/>
+			<Function name='get_slope'/>
+			<Function name='set_from_bezier'/>
+			<Function name='set_from_cubic'/>
 		</Class>
 		<Class name='RageSound'>
 			<Function name='get_length'/>
@@ -1682,10 +1701,12 @@
 			<Function name='addimagecoords'/>
 			<Function name='cropto'/>
 			<Function name='customtexturerect'/>
+			<Function name='get_use_effect_clock_for_texcoords'/>
 			<Function name='loop'/>
 			<Function name='position'/>
 			<Function name='rate'/>
 			<Function name='scaletoclipped'/>
+			<Function name='set_use_effect_clock_for_texcoords'/>
 			<Function name='setstate'/>
 			<Function name='stretchtexcoords'/>
 			<Function name='texcoordvelocity'/>
